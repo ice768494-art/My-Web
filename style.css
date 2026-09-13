@@ -1,6 +1,6 @@
 body {
     background-color: #111;
-    color: white;
+    color: black;
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 30px;
@@ -15,12 +15,12 @@ h2 {
 }
 
 p {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 button {
     background-color: #229ED9;
-    color: white;
+    color: blue;
     border: none;
     padding: 12px 25px;
     border-radius: 8px;
