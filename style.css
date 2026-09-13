@@ -18,6 +18,17 @@ p {
     font-size: 16px;
 }
 
+.anime-details {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #1e1e1e;
+    border-radius: 15px;
+}
+
+.anime-details p {
+    margin: 15px 0;
+}
 button {
     background-color: #229ED9;
     color: blue;
