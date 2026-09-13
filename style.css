@@ -27,3 +27,36 @@ button {
     font-size: 16px;
     cursor: pointer;
 }
+.anime-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.anime-card {
+    background-color: #1e1e1e;
+    width: 220px;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.anime-image {
+    height: 250px;
+    background-color: #333;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+
+.anime-card button {
+    background-color: #229ED9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+}
