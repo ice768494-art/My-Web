@@ -44,13 +44,10 @@ button {
 }
 
 .anime-image {
-    height: 250px;
-    background-color: #333;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
     border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 50px;
 }
 
 .anime-card button {
