@@ -68,3 +68,34 @@ button {
     padding: 10px 20px;
     border-radius: 6px;
 }
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .anime-container {
+        gap: 15px;
+    }
+
+    .anime-card {
+        width: 160px;
+    }
+
+    .anime-image {
+        height: 230px;
+    }
+
+    .anime-card h3 {
+        font-size: 16px;
+    }
+
+    .anime-card p {
+        font-size: 14px;
+    }
+
+}
