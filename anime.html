@@ -1,36 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Anime Details</title>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Anime | AnimeNetworkTamil</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <h1>One Piece</h1>
+    <header class="site-header">
 
-    <div class="anime-details">
+        <div class="logo">
+            AnimeNetworkTamil
+        </div>
 
-        <h2>One Piece</h2>
+        <button id="themeToggle" class="theme-button">
+            🌙
+        </button>
 
-        <p>⭐ Rating: 8.9/10</p>
+    </header>
 
-        <p>🎙️ Audio: Tamil</p>
 
-        <p>
-            One Piece is an adventure anime following
-            Monkey D. Luffy and his crew.
-        </p>
+    <main>
 
-        <button>Watch Now</button>
+        <section class="anime-details" id="animeDetails">
 
-    </div>
+            <img
+                id="animePoster"
+                class="details-poster"
+                src=""
+                alt=""
+            >
 
-    <br>
+            <div class="details-content">
 
-    <a href="index.html">
-        <button>← Back</button>
-    </a>
+                <h1 id="animeTitle">
+                    Loading...
+                </h1>
+
+                <p id="animeRating"></p>
+
+                <p id="animeAudio"></p>
+
+                <p id="animeDescription"></p>
+
+                <button
+                    id="watchButton"
+                    class="watch-button"
+                >
+                    ▶ Watch Now
+                </button>
+
+                <br><br>
+
+                <a
+                    href="index.html"
+                    class="back-button"
+                >
+                    ← Back
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
