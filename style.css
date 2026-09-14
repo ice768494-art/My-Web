@@ -1,101 +1,517 @@
+/* ========================================
+   GLOBAL
+======================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background-color: #111;
-    color: black;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 30px;
+
+    background: #0b0b0f;
+
+    color: #ffffff;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    min-height: 100vh;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
-h1 {
-    font-size: 40px;
-}
 
-h2 {
-    margin-top: 40px;
-}
+/* ========================================
+   HEADER
+======================================== */
 
-p {
-    font-size: 16px;
-}
+.site-header {
 
-.anime-details {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 25px;
-    background-color: #1e1e1e;
-    border-radius: 15px;
-}
-
-.anime-details p {
-    margin: 15px 0;
-}
-button {
-    background-color: #229ED9;
-    color: blue;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-}
-.anime-container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 30px;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 7%;
+
+    background: #121218;
+
+    border-bottom:
+        1px solid #252530;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
 }
+
+
+.logo {
+
+    font-size: 22px;
+
+    font-weight: bold;
+}
+
+
+.theme-button {
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #229ed9;
+
+    cursor: pointer;
+
+    font-size: 19px;
+
+    color: white;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.hero {
+
+    text-align: center;
+
+    padding: 70px 20px 50px;
+
+}
+
+
+.hero h1 {
+
+    font-size: clamp(
+        32px,
+        7vw,
+        60px
+    );
+
+    margin-bottom: 12px;
+}
+
+
+.hero p {
+
+    color: #aaa;
+
+    margin-bottom: 25px;
+}
+
+
+.telegram-button {
+
+    display: inline-block;
+
+    padding: 13px 24px;
+
+    background: #229ed9;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+
+.telegram-button:hover {
+
+    transform: translateY(-2px);
+
+    opacity: 0.9;
+}
+
+
+/* ========================================
+   ANIME SECTION
+======================================== */
+
+.anime-section {
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding-bottom: 60px;
+}
+
+
+.section-title {
+
+    margin-bottom: 25px;
+}
+
+
+.section-title h2 {
+
+    font-size: 28px;
+}
+
+
+/* ========================================
+   ANIME GRID
+======================================== */
+
+.anime-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(180px, 1fr)
+        );
+
+    gap: 22px;
+}
+
+
+/* ========================================
+   ANIME CARD
+======================================== */
 
 .anime-card {
-    background-color: #1e1e1e;
-    width: 220px;
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
+
+    background: #15151d;
+
+    border:
+        1px solid #262632;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
 }
+
+
+.anime-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+        0 12px 35px
+        rgba(0, 0, 0, 0.4);
+}
+
 
 .anime-image {
+
     width: 100%;
-    height: 300px;
+
+    aspect-ratio: 2 / 3;
+
     object-fit: cover;
-    border-radius: 8px;
+
+    display: block;
 }
 
-.anime-card button {
-    background-color: #229ED9;
+
+.anime-info {
+
+    padding: 15px;
+
+    text-align: left;
+}
+
+
+.anime-info h3 {
+
+    margin-bottom: 9px;
+
+    font-size: 18px;
+}
+
+
+.anime-info p {
+
+    color: #aaa;
+
+    font-size: 14px;
+
+    margin: 5px 0;
+}
+
+
+/* ========================================
+   BUTTON
+======================================== */
+
+.view-button {
+
+    display: block;
+
+    margin-top: 14px;
+
+    text-align: center;
+
+    background: #229ed9;
+
     color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
+
+    padding: 10px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: bold;
 }
-@media (max-width: 600px) {
 
-    body {
-        padding: 15px;
+
+/* ========================================
+   DETAILS PAGE
+======================================== */
+
+.anime-details {
+
+    width: 90%;
+
+    max-width: 900px;
+
+    margin: 70px auto;
+
+    padding: 30px;
+
+    display: flex;
+
+    gap: 35px;
+
+    background: #15151d;
+
+    border-radius: 18px;
+
+    border:
+        1px solid #292934;
+}
+
+
+.details-poster {
+
+    width: 280px;
+
+    height: 420px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+}
+
+
+.details-content {
+
+    flex: 1;
+
+    padding-top: 20px;
+}
+
+
+.details-content h1 {
+
+    font-size: 38px;
+
+    margin-bottom: 20px;
+}
+
+
+.details-content p {
+
+    color: #bbb;
+
+    line-height: 1.7;
+
+    margin-bottom: 14px;
+}
+
+
+.watch-button {
+
+    margin-top: 20px;
+
+    border: none;
+
+    background: #229ed9;
+
+    color: white;
+
+    padding: 13px 25px;
+
+    border-radius: 9px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+
+.back-button {
+
+    color: #229ed9;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+footer {
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #777;
+
+    border-top:
+        1px solid #222;
+}
+
+
+/* ========================================
+   LIGHT MODE
+======================================== */
+
+body.light-mode {
+
+    background: #f4f5f7;
+
+    color: #111;
+}
+
+
+body.light-mode .site-header {
+
+    background: white;
+
+    border-color: #ddd;
+}
+
+
+body.light-mode .anime-card,
+body.light-mode .anime-details {
+
+    background: white;
+
+    border-color: #ddd;
+}
+
+
+body.light-mode .anime-info p,
+body.light-mode .details-content p {
+
+    color: #555;
+}
+
+
+body.light-mode .hero p {
+
+    color: #555;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 650px) {
+
+    .site-header {
+
+        padding: 15px 5%;
     }
 
-    h1 {
-        font-size: 30px;
-    }
 
     .anime-container {
-        gap: 15px;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 12px;
     }
 
-    .anime-card {
-        width: 160px;
+
+    .anime-info {
+
+        padding: 11px;
     }
 
-    .anime-image {
-        height: 230px;
+
+    .anime-info h3 {
+
+        font-size: 15px;
     }
 
-    .anime-card h3 {
-        font-size: 16px;
+
+    .anime-info p {
+
+        font-size: 12px;
     }
 
-    .anime-card p {
-        font-size: 14px;
+
+    .view-button {
+
+        font-size: 13px;
+
+        padding: 9px;
+    }
+
+
+    .anime-details {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+
+        padding: 20px;
+
+        margin-top: 30px;
+    }
+
+
+    .details-poster {
+
+        width: 200px;
+
+        height: 300px;
+    }
+
+
+    .details-content h1 {
+
+        font-size: 28px;
     }
 
 }
