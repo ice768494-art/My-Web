@@ -438,7 +438,59 @@ body.light-mode .hero p {
 
     color: #555;
 }
+/* ========================================
+   SEARCH & FILTERS
+======================================== */
 
+.anime-tools {
+    margin-bottom: 30px;
+}
+
+#animeSearch {
+    width: 100%;
+    padding: 15px 18px;
+    border: 1px solid #292934;
+    border-radius: 12px;
+    background: #15151d;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+#animeSearch:focus {
+    border-color: #229ed9;
+}
+
+.genre-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.genre-btn {
+    border: 1px solid #292934;
+    background: #15151d;
+    color: #bbb;
+    padding: 9px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.genre-btn.active,
+.genre-btn:hover {
+    background: #229ed9;
+    color: white;
+    border-color: #229ed9;
+}
+
+.no-results {
+    display: none;
+    text-align: center;
+    padding: 40px 10px;
+    color: #999;
+    font-size: 17px;
+}
 
 /* ========================================
    MOBILE
