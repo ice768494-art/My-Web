@@ -153,6 +153,47 @@ if (animeTitle) {
         poster.src = anime.poster;
 
         poster.alt = anime.title;
+        // ========================================
+// EPISODES
+// ========================================
+
+const episodeList =
+    document.getElementById("episodeList");
+
+
+if (episodeList && anime.episodes) {
+
+    anime.episodes.forEach(episode => {
+
+        const episodeItem =
+            document.createElement("div");
+
+        episodeItem.className =
+            "episode-item";
+
+
+        episodeItem.innerHTML = `
+            <div class="episode-info">
+                <span>Episode ${episode.number}</span>
+                <strong>${episode.title}</strong>
+            </div>
+
+            <a
+                href="${episode.url}"
+                class="episode-watch"
+            >
+                ▶ Watch
+            </a>
+        `;
+
+
+        episodeList.appendChild(
+            episodeItem
+        );
+
+    });
+
+}
 
 
         document
