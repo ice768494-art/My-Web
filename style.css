@@ -493,6 +493,80 @@ body.light-mode .hero p {
 }
 
 /* ========================================
+   EPISODES
+======================================== */
+
+#episodesSection {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto 70px;
+}
+
+#episodesSection h2 {
+    margin-bottom: 18px;
+}
+
+#episodeList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.episode-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    padding: 15px 18px;
+
+    background: #15151d;
+
+    border: 1px solid #292934;
+
+    border-radius: 12px;
+}
+
+.episode-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.episode-info span {
+    color: #229ed9;
+    font-weight: bold;
+}
+
+.episode-info strong {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.episode-watch {
+    background: #229ed9;
+    color: white;
+
+    padding: 9px 15px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+body.light-mode .episode-item {
+    background: white;
+    border-color: #ddd;
+}
+
+body.light-mode .episode-info strong {
+    color: #555;
+}
+/* ========================================
    MOBILE
 ======================================== */
 
