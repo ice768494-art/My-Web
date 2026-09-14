@@ -179,3 +179,84 @@ if (animeTitle) {
     }
 
 }
+// ========================================
+// SEARCH + GENRE FILTER
+// ========================================
+
+const searchInput =
+    document.getElementById("animeSearch");
+
+const genreButtons =
+    document.querySelectorAll(".genre-btn");
+
+const animeCards =
+    document.querySelectorAll(".anime-card");
+
+
+let selectedGenre = "all";
+
+
+function filterAnime() {
+
+    const searchText =
+        searchInput
+            ? searchInput.value.toLowerCase().trim()
+            : "";
+
+
+    animeCards.forEach(card => {
+
+        const title =
+            card.dataset.title || "";
+
+        const genres =
+            card.dataset.genres || "";
+
+
+        const matchesSearch =
+            title.includes(searchText);
+
+
+        const matchesGenre =
+            selectedGenre === "all" ||
+            genres.includes(selectedGenre);
+
+
+        card.style.display =
+            matchesSearch && matchesGenre
+                ? ""
+                : "none";
+
+    });
+
+}
+
+
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "input",
+        filterAnime
+    );
+
+}
+
+
+genreButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        genreButtons.forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+        button.classList.add("active");
+
+        selectedGenre =
+            button.dataset.genre;
+
+        filterAnime();
+
+    });
+
+});
