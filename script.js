@@ -1,5 +1,181 @@
-const button = document.getElementById("telegramButton");
+// ========================================
+// ANIME DATABASE
+// ========================================
 
-button.addEventListener("click", function () {
-    window.open("https://t.me/AnimeNetworkTamil", "_blank");
-});
+const animeData = {
+
+    "one-piece": {
+
+        title: "One Piece",
+
+        rating: "8.9/10",
+
+        audio: "Tamil",
+
+        description:
+            "One Piece follows Monkey D. Luffy and his crew on their adventure to find the legendary One Piece.",
+
+        poster:
+            "https://image.tmdb.org/t/p/original/uiIB9ctqZFbfRXXimtpmZb5dusi.jpg"
+
+    },
+
+
+    "naruto": {
+
+        title: "Naruto",
+
+        rating: "8.7/10",
+
+        audio: "Tamil",
+
+        description:
+            "Naruto follows a young ninja who dreams of becoming the strongest leader of his village.",
+
+        poster:
+            "https://image.tmdb.org/t/p/original/xppeysfvDKVx775MFuH8Z9BlpMk.jpg"
+
+    },
+
+
+    "jujutsu-kaisen": {
+
+        title: "Jujutsu Kaisen",
+
+        rating: "8.6/10",
+
+        audio: "Tamil",
+
+        description:
+            "Jujutsu Kaisen follows Yuji Itadori as he becomes involved in the dangerous world of cursed spirits.",
+
+        poster:
+            "https://image.tmdb.org/t/p/original/6qQzMJG27XOJsyAEEIisoJB45j2.jpg"
+
+    }
+
+};
+
+
+// ========================================
+// THEME TOGGLE
+// ========================================
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+
+if (themeToggle) {
+
+    themeToggle.addEventListener("click", () => {
+
+        document.body.classList.toggle("light-mode");
+
+        const isLight =
+            document.body.classList.contains("light-mode");
+
+        themeToggle.textContent =
+            isLight ? "☀️" : "🌙";
+
+        localStorage.setItem(
+            "theme",
+            isLight ? "light" : "dark"
+        );
+
+    });
+
+
+    // Load saved theme
+
+    const savedTheme =
+        localStorage.getItem("theme");
+
+    if (savedTheme === "light") {
+
+        document.body.classList.add("light-mode");
+
+        themeToggle.textContent = "☀️";
+
+    }
+
+}
+
+
+// ========================================
+// ANIME DETAILS PAGE
+// ========================================
+
+const animeTitle =
+    document.getElementById("animeTitle");
+
+
+if (animeTitle) {
+
+    const params =
+        new URLSearchParams(window.location.search);
+
+    const animeId =
+        params.get("anime");
+
+    const anime =
+        animeData[animeId];
+
+
+    if (anime) {
+
+        document.title =
+            `${anime.title} | AnimeNetworkTamil`;
+
+
+        document.getElementById("animeTitle")
+            .textContent = anime.title;
+
+
+        document.getElementById("animeRating")
+            .textContent =
+            `⭐ Rating: ${anime.rating}`;
+
+
+        document.getElementById("animeAudio")
+            .textContent =
+            `🎙️ Audio: ${anime.audio}`;
+
+
+        document.getElementById("animeDescription")
+            .textContent =
+            anime.description;
+
+
+        const poster =
+            document.getElementById("animePoster");
+
+        poster.src = anime.poster;
+
+        poster.alt = anime.title;
+
+
+        document
+            .getElementById("watchButton")
+            .addEventListener("click", () => {
+
+                alert(
+                    `${anime.title} player will be added soon!`
+                );
+
+            });
+
+    }
+
+    else {
+
+        document.getElementById("animeTitle")
+            .textContent =
+            "Anime Not Found";
+
+        document.getElementById("animeDescription")
+            .textContent =
+            "The anime you're looking for doesn't exist.";
+
+    }
+
+}
