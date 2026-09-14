@@ -2,56 +2,57 @@
 // ANIME DATABASE
 // ========================================
 
+
 const animeData = {
 
     "one-piece": {
-
         title: "One Piece",
-
         rating: "8.9/10",
-
         audio: "Tamil",
-
         description:
             "One Piece follows Monkey D. Luffy and his crew on their adventure to find the legendary One Piece.",
-
         poster:
-            "https://image.tmdb.org/t/p/original/uiIB9ctqZFbfRXXimtpmZb5dusi.jpg"
+            "https://image.tmdb.org/t/p/original/uiIB9ctqZFbfRXXimtpmZb5dusi.jpg",
 
+        episodes: [
+            { number: 1, title: "Episode 1", url: "#" },
+            { number: 2, title: "Episode 2", url: "#" },
+            { number: 3, title: "Episode 3", url: "#" }
+        ]
     },
 
 
     "naruto": {
-
         title: "Naruto",
-
         rating: "8.7/10",
-
         audio: "Tamil",
-
         description:
             "Naruto follows a young ninja who dreams of becoming the strongest leader of his village.",
-
         poster:
-            "https://image.tmdb.org/t/p/original/xppeysfvDKVx775MFuH8Z9BlpMk.jpg"
+            "https://image.tmdb.org/t/p/original/xppeysfvDKVx775MFuH8Z9BlpMk.jpg",
 
+        episodes: [
+            { number: 1, title: "Episode 1", url: "#" },
+            { number: 2, title: "Episode 2", url: "#" },
+            { number: 3, title: "Episode 3", url: "#" }
+        ]
     },
 
 
     "jujutsu-kaisen": {
-
         title: "Jujutsu Kaisen",
-
         rating: "8.6/10",
-
         audio: "Tamil",
-
         description:
             "Jujutsu Kaisen follows Yuji Itadori as he becomes involved in the dangerous world of cursed spirits.",
-
         poster:
-            "https://image.tmdb.org/t/p/original/6qQzMJG27XOJsyAEEIisoJB45j2.jpg"
+            "https://image.tmdb.org/t/p/original/6qQzMJG27XOJsyAEEIisoJB45j2.jpg",
 
+        episodes: [
+            { number: 1, title: "Episode 1", url: "#" },
+            { number: 2, title: "Episode 2", url: "#" },
+            { number: 3, title: "Episode 3", url: "#" }
+        ]
     }
 
 };
