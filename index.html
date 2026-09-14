@@ -1,59 +1,168 @@
 <!DOCTYPE html>
-<html>
-<script src="script.js"></script>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AnimeNetworkTamil</title>
+
     <link rel="stylesheet" href="style.css">
-    <title>My First Coding</title>
 </head>
 
 <body>
 
-    <h1>AnimeNetworkTamil</h1>
+    <header class="site-header">
 
-    <p>Welcome to my Anime Site!</p>
+        <div class="logo">
+            AnimeNetworkTamil
+        </div>
 
-    <a href="https://t.me/AnimeNetworkTamil" target="_blank">
-    <button>Join Telegram</button>
-    </a>
+        <button id="themeToggle" class="theme-button">
+            🌙
+        </button>
+
+    </header>
+
+
+    <main>
+
+        <section class="hero">
+
+            <h1>AnimeNetworkTamil</h1>
+
+            <p>
+                Tamil Anime • Latest Releases • Movies
+            </p>
+
+            <a
+                href="https://t.me/AnimeNetworkTamil"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="telegram-button"
+            >
+                📲 Join Telegram
+            </a>
+
+        </section>
+
+
+        <section class="anime-section">
+
+            <div class="section-title">
+                <h2>🔥 Latest Anime</h2>
+            </div>
+
+
+            <div class="anime-container">
+
+
+                <!-- One Piece -->
+
+                <article class="anime-card">
+
+                    <img
+                        class="anime-image"
+                        src="https://image.tmdb.org/t/p/original/uiIB9ctqZFbfRXXimtpmZb5dusi.jpg"
+                        alt="One Piece"
+                    >
+
+                    <div class="anime-info">
+
+                        <h3>One Piece</h3>
+
+                        <p>⭐ 8.9/10</p>
+
+                        <p>🎙️ Tamil</p>
+
+                        <a
+                            href="anime.html?anime=one-piece"
+                            class="view-button"
+                        >
+                            View Anime
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Naruto -->
+
+                <article class="anime-card">
+
+                    <img
+                        class="anime-image"
+                        src="https://image.tmdb.org/t/p/original/xppeysfvDKVx775MFuH8Z9BlpMk.jpg"
+                        alt="Naruto"
+                    >
+
+                    <div class="anime-info">
+
+                        <h3>Naruto</h3>
+
+                        <p>⭐ 8.7/10</p>
+
+                        <p>🎙️ Tamil</p>
+
+                        <a
+                            href="anime.html?anime=naruto"
+                            class="view-button"
+                        >
+                            View Anime
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Jujutsu Kaisen -->
+
+                <article class="anime-card">
+
+                    <img
+                        class="anime-image"
+                        src="https://image.tmdb.org/t/p/original/6qQzMJG27XOJsyAEEIisoJB45j2.jpg"
+                        alt="Jujutsu Kaisen"
+                    >
+
+                    <div class="anime-info">
+
+                        <h3>Jujutsu Kaisen</h3>
+
+                        <p>⭐ 8.6/10</p>
+
+                        <p>🎙️ Tamil</p>
+
+                        <a
+                            href="anime.html?anime=jujutsu-kaisen"
+                            class="view-button"
+                        >
+                            View Anime
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            © 2026 AnimeNetworkTamil
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
 </body>
 </html>
-<h2>Latest Anime</h2>
-
-<div class="anime-container">
-
-    <div class="anime-card">
-        <img
-    class="anime-image"
-    src="https://image.tmdb.org/t/p/original/uiIB9ctqZFbfRXXimtpmZb5dusi.jpg"
-    alt="Anime Poster">
-        <h3>One Piece</h3>
-        <p>⭐ 8.9/10</p>
-        <p>🎙️ Tamil</p>
-        <a href="anime.html">
-    <button>View Anime</button>
-        </a>
-    </div>
-
-    <div class="anime-card">
-        <img
-    class="anime-image"
-    src="https://image.tmdb.org/t/p/original/xppeysfvDKVx775MFuH8Z9BlpMk.jpg"
-    alt="Anime Poster">
-        <h3>Naruto</h3>
-        <p>⭐ 8.7/10</p>
-        <p>🎙️ Tamil</p>
-        <button>View Anime</button>
-    </div>
-
-    <div class="anime-card">
-        <img
-    class="anime-image"
-    src="https://image.tmdb.org/t/p/original/6qQzMJG27XOJsyAEEIisoJB45j2.jpg"
-    alt="Anime Poster">
-        <h3>Jujutsu Kaisen</h3>
-        <p>⭐ 8.6/10</p>
-        <p>🎙️ Tamil</p>
-        <button>View Anime</button>
-    </div>
-
-</div>
