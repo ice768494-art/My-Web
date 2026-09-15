@@ -1,5 +1,4 @@
 export default async function handler(req, res) {
-    // Test in browser
     if (req.method === "GET") {
         return res.status(200).json({
             ok: true,
@@ -19,93 +18,62 @@ export default async function handler(req, res) {
 
         console.log("Telegram update:", update);
 
-        // Only process channel posts
-        if (update?.channel_post) {
-            const post = update.channel_post;
+        const post = update?.channel_post;
 
-            const caption =
-                post.caption ||
-                post.text ||
-                "";
-
-            const messageId = post.message_id;
-            const channelId = post.chat?.id;
-            const channelTitle = post.chat?.title || "";
-
-            console.log("Channel post received:", {
-                messageId,
-                channelId,
-                channelTitle,
-                caption
+        if (!post) {
+            return res.status(200).json({
+                ok: true,
+                message: "No channel post"
             });
-
-            // Supabase settings
-            const supabaseUrl = process.env.SUPABASE_URL;
-            const supabaseKey = process.env.SUPABASE_ANON_KEY;
-
-            if (!supabaseUrl || !supabaseKey) {
-                throw new Error("Supabase environment variables are missing");
-            }
-
-            // Save the Telegram post as an anime record
-            const title =
-                caption.split("\n")[0]?.trim() ||
-                channelTitle ||
-                `Telegram Post ${messageId}`;
-
-            const slug = title
-                .toLowerCase()
-                .replace(/[^a-z0-9]+/g, "-")
-                .replace(/^-|-$/g, "")
-                .slice(0, 80);
-
-            const response = await fetch(
-                `${supabaseUrl}/rest/v1/anime`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "apikey": supabaseKey,
-                        "Authorization": `Bearer ${supabaseKey}`,
-                        "Prefer": "return=minimal"
-                    },
-                    body: JSON.stringify({
-                        title: title,
-                        slug: `${slug}-${messageId}`,
-                        description: caption,
-                        audio: "Tamil"
-                    })
-                }
-            );
-
-            if (!response.ok) {
-                const errorText = await response.text();
-
-                console.error(
-                    "Supabase error:",
-                    errorText
-                );
-
-                throw new Error(
-                    `Supabase request failed: ${response.status}`
-                );
-            }
-
-            console.log("Saved to Supabase successfully!");
         }
 
-        return res.status(200).json({
-            ok: true,
-            message: "Telegram update received and processed"
-        });
+        // Get Telegram text/caption
+        const text = post.caption || post.text || "";
 
-    } catch (error) {
-        console.error("Webhook error:", error);
+        console.log("Post text:", text);
 
-        return res.status(500).json({
-            ok: false,
-            message: "Webhook error",
-            error: error.message
-        });
-    }
-}
+        // --------------------------------
+        // GET ANIME TITLE
+        // --------------------------------
+
+        const lines = text
+            .split("\n")
+            .map(line => line.trim())
+            .filter(Boolean);
+
+        let animeTitle = lines[0] || "Unknown Anime";
+
+        // Remove emoji/title decorations
+        animeTitle = animeTitle
+            .replace(/^🎬\s*/i, "")
+            .trim();
+
+        // --------------------------------
+        // GET EPISODE NUMBER
+        // --------------------------------
+
+        const episodeMatch = text.match(
+            /episode\s*(\d+(?:\.\d+)?)/i
+        );
+
+        if (!episodeMatch) {
+            console.log("No episode number found");
+
+            return res.status(200).json({
+                ok: true,
+                message: "Anime post received, but no episode number found"
+            });
+        }
+
+        const episodeNumber = Number(episodeMatch[1]);
+
+        // --------------------------------
+        // GET WATCH URL
+        // --------------------------------
+
+        const urlMatch = text.match(
+            /https?:\/\/[^\s]+/i
+        );
+
+        const videoUrl = urlMatch
+            ? urlMatch[0].replace(/[)\],.]+
